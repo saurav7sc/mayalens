@@ -24,7 +24,7 @@ export default defineConfig({
     allowedHosts: true,
     proxy: {
       '/api': {
-        target: 'https://d095f92cc069.ngrok-free.app',
+        target: 'https://mayalens.onrender.com',
         changeOrigin: true,
       },
       '/audio': {
