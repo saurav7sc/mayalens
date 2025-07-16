@@ -219,12 +219,13 @@ async def analyze_palm_with_openai(image_base64: str) -> Tuple[str, bool]:
                             {"type": "text", 
                             "text": "Pretend you are a friendly and fictional palm-reading character from a storybook. This is just for fun and creative entertainment — not real advice.\n\nImagine you are describing a magical hand drawing, like one you’d find in a fantasy tale. Write a fun and playful palm-reading style description in 5 parts:\n\n"
                             "1. ✋ Overall Personality  \nSay 3-4 sentences about the person's personality based on the lines in the hand."
-                            "2. 💼 Career Potential  \nSay what kind of work or job might suit them."
-                            "3. 💰 Wealth & Money Vibes  \nSay something about their money energy — how lucky or careful they might be."
-                            "4. 🎯 Hidden Talent  \nMention a natural strength or gift that might not be obvious, but could help them shine."
-                            "5. 🧠 One-Liner Fortune  \nWrite one short, poetic line — like a fortune cookie message."
+                            "2. 💼 Career Potential  \nSay about head line and what kind of work or job might suit them."
+                            "3. 💰 Wealth & Money Vibes  \nSay about fate line, wealth indicators and something about their money energy — how lucky or careful they might be."
+                            "4. ❤️ Relationships & Emotions \nSay about Heart Line and Love life, emotional nature, and relationships with others and marriage"
+                            "5. 🎯 Hidden Talent  \nMention a natural strength or gift that might not be obvious, but could help them shine."
+                            "6. 🧠 One-Liner Fortune  \nWrite one short, poetic line — like a fortune cookie message."
                             "Use emojis and short paragraphs to make it fun to read. Add line breaks between each part. Dont use Markdown like ###"
-                            "At the end, add this line exactly:✨ Share your palm reading with friends at [Hastarekha.com](https://hastarekha.com) ✨"
+                            "At the end, add this line exactly:✨ Share your palm reading with friends at [MystiView.com](https://mystiview.com) ✨"
                             "Important:\n- Only talk about what you see in this hand image.\n- Do not say you can't analyze images.\n- Do not include warnings or disclaimers.\n- Make it sound magical, positive, and fun — not serious."
                             },
                             {

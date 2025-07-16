@@ -10,7 +10,7 @@ const PrivacyPolicy = () => {
         
         <h2 className="text-2xl font-semibold mt-8 mb-4">1. Introduction</h2>
         <p>
-          Welcome to Hastarekha ("we", "our", "us"). We respect your privacy and are committed to protecting your personal data.
+          Welcome to MystiView ("we", "our", "us"). We respect your privacy and are committed to protecting your personal data.
           This privacy policy will inform you about how we look after your personal data when you visit our website and tell
           you about your privacy rights and how the law protects you.
         </p>
@@ -70,8 +70,8 @@ const PrivacyPolicy = () => {
         <h2 className="text-2xl font-semibold mt-8 mb-4">7. Contact Us</h2>
         <p>
           If you have any questions about this Privacy Policy, please contact us at:
-          <a href="mailto:privacy@hastarekha.com" className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 ml-1">
-            privacy@hastarekha.com
+          <a href="mailto:mystiview@gmail.com" className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 ml-1">
+            mystiview@gmail.com
           </a>
         </p>
         

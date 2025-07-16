@@ -362,15 +362,14 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
               </div>
               <div>
                 <h1 className="text-4xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Hastarekha
+                  MystiView
                 </h1>
                 <div className="flex items-center gap-1 justify-center mt-1">
-                  {/* <span className="text-2xl">✋</span> */}
+                  <span className="text-2xl">✋</span>
                   <span className="text-sm text-gray-500 dark:text-gray-400 font-medium tracking-wide">
                     AI PALM READING
                   </span>
-                  <span className="text-2xl">✋</span>
-                  {/* <span className="text-2xl">🔮</span> */}
+                  <span className="text-2xl">🔮</span>
                 </div>
               </div>
             </div>
@@ -491,7 +490,7 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
                 // Check if this is the share section
                 const isShareSection =
                   section.content.includes("Share your palm reading") ||
-                  section.content.includes("hastarekha.com");
+                  section.content.includes("mystiview.com");
 
                 if (isShareSection) {
                   return (
@@ -623,8 +622,22 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
             This is for entertainment purposes only. No scientific basis.
           </p>
           <div className="text-xs text-gray-400 dark:text-gray-500 space-y-1">
-            <p>© 2025 Hastarekha. All rights reserved.</p>
+            <p>© 2025 MystiView. All rights reserved.</p>
             <p>
+              <a
+                href="/about"
+                className="hover:text-indigo-600 transition-colors"
+              >
+                About
+              </a>
+              {" • "}
+              <a
+                href="/contact"
+                className="hover:text-indigo-600 transition-colors"
+              >
+                Contact
+              </a>
+              {" • "}
               <a
                 href="/privacy"
                 className="hover:text-indigo-600 transition-colors"

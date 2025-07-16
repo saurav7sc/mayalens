@@ -65,7 +65,7 @@ const Home = () => {
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-foreground">
-                  HastaRekha
+                  MystiView
                 </h1>
                 <p className="text-sm text-muted-foreground">
                   English & Nepali Typing Practice

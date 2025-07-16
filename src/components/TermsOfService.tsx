@@ -10,26 +10,26 @@ const TermsOfService = () => {
         
         <h2 className="text-2xl font-semibold mt-8 mb-4">1. Introduction</h2>
         <p>
-          Welcome to Hastarekha. These Terms of Service ("Terms") govern your use of our website
-          and services. By using Hastarekha, you agree to these Terms in full. If you disagree
+          Welcome to MystiView. These Terms of Service ("Terms") govern your use of our website
+          and services. By using MystiView, you agree to these Terms in full. If you disagree
           with these Terms or any part of them, you must not use our service.
         </p>
         
         <h2 className="text-2xl font-semibold mt-8 mb-4">2. Service Description</h2>
         <p>
-          Hastarekha provides an AI-powered palm reading service for entertainment purposes only.
+          MystiView provides an AI-powered palm reading service for entertainment purposes only.
           Our service uses artificial intelligence to analyze images of palms uploaded by users
           and generates personalized readings based on patterns detected in those images.
         </p>
         <p className="mt-4">
-          <strong>Important Disclaimer</strong>: The palm readings provided by Hastarekha are for
+          <strong>Important Disclaimer</strong>: The palm readings provided by MystiView are for
           entertainment purposes only and should not be considered as professional advice, medical
           diagnosis, or treatment recommendation. Our AI system provides generalized interpretations
           and should not be used for making important life decisions.
         </p>
         
         <h2 className="text-2xl font-semibold mt-8 mb-4">3. User Obligations</h2>
-        <p>As a user of Hastarekha, you agree:</p>
+        <p>As a user of MystiView, you agree:</p>
         <ul className="list-disc pl-6 my-4 space-y-2">
           <li>To provide only your own palm images or images you have permission to use</li>
           <li>Not to use our service for any illegal or unauthorized purpose</li>
@@ -40,7 +40,7 @@ const TermsOfService = () => {
         
         <h2 className="text-2xl font-semibold mt-8 mb-4">4. Intellectual Property</h2>
         <p>
-          Hastarekha and its original content, features, and functionality are owned by us and
+          MystiView and its original content, features, and functionality are owned by us and
           are protected by international copyright, trademark, and other intellectual property laws.
         </p>
         <p className="mt-2">
@@ -50,11 +50,11 @@ const TermsOfService = () => {
         
         <h2 className="text-2xl font-semibold mt-8 mb-4">5. Limitation of Liability</h2>
         <p>
-          Hastarekha is provided on an "as is" and "as available" basis. We make no warranties, 
+          MystiView is provided on an "as is" and "as available" basis. We make no warranties, 
           expressed or implied, regarding the reliability, accuracy, or availability of our service.
         </p>
         <p className="mt-2">
-          In no event shall Hastarekha be liable for any indirect, incidental, special, consequential,
+          In no event shall MystiView be liable for any indirect, incidental, special, consequential,
           or punitive damages arising out of or related to your use of our service.
         </p>
         
@@ -68,8 +68,8 @@ const TermsOfService = () => {
         <h2 className="text-2xl font-semibold mt-8 mb-4">7. Contact Us</h2>
         <p>
           If you have any questions about these Terms, please contact us at:
-          <a href="mailto:terms@hastarekha.com" className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 ml-1">
-            terms@hastarekha.com
+          <a href="mailto:mystiview@gmail.com" className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 ml-1">
+            mystiview@gmail.com
           </a>
         </p>
         
