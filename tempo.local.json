@@ -1,0 +1,11 @@
+{
+    "container_name": "priceless-wilbur1-pc8hq",
+    "port": 14845,
+    "ssh_host": "ssh-priceless-wilbur1-pc8hq.view-3.tempo-dev.app",
+    "tempo_canvas_id": "74d22fc6-e7a6-4575-9e42-8a93426bc716",
+    "install_command": "npm install",
+    "run_command": "npm run dev -- --host 0.0.0.0 --port 3000",
+    "git_remote": "https://github.com/TempoLabsAI/starter-vite-swc",
+    "git_branch": "TEM-1",
+    "dev_server_port": "3000"
+}
