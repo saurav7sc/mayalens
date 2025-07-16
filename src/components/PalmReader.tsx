@@ -28,6 +28,8 @@ interface FortuneSection {
   content: string;
 }
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string | null>(null);
@@ -238,7 +240,7 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
       const formData = new FormData();
       formData.append("image", selectedImage);
 
-      const response = await fetch("/api/analyze-palm", {
+      const response = await fetch(`${API_BASE_URL}/api/analyze-palm`, {
         method: "POST",
         body: formData,
       });
