@@ -28,7 +28,7 @@ export default defineConfig({
         changeOrigin: true,
       },
       '/audio': {
-        target: 'http://localhost:8000',
+        target: 'https://mayalens.onrender.com',
         changeOrigin: true,
       }
     }
