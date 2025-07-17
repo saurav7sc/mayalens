@@ -202,6 +202,57 @@ def convert_image_to_base64(image_file: UploadFile) -> str:
         raise HTTPException(status_code=400, detail="Invalid image format")
 
 
+async def detect_palm(image_base64: str) -> bool:
+    """Detect if the image contains the inner side of a palm (with palm lines visible)
+    
+    Returns True if a proper palm reading surface is detected, False otherwise
+    """
+    try:
+        # Set up the chat completion with proper timeout and retry handling
+        response = await run_in_threadpool(
+            lambda: openai_client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "user",
+                        "content": [
+                            {"type": "text", 
+                             "text": "You are a palm reading image validator. Your ONLY job is to check if the image shows the INNER SIDE of a human palm with palm lines visible (the side used for palm reading)."
+                                    "\n\nA proper palm reading image must show the INNER SURFACE of the hand with visible lines on the palm."
+                                    "\n\nRespond with EXACTLY ONE WORD: 'yes' if the image shows the INNER SIDE of a human palm with visible lines, or 'no' if it shows:"
+                                    "\n- The back/dorsal side of a hand"
+                                    "\n- A partial or unclear view of a palm"
+                                    "\n- Any other body part or object"
+                                    "\n\nJust respond with 'yes' or 'no' without any explanation."
+                            },
+                            {
+                                "type": "image_url",
+                                "image_url": {
+                                    "url": image_base64
+                                }
+                            }
+                        ]
+                    }
+                ],
+                max_tokens=10,
+                temperature=0.0,  # Deterministic response
+                timeout=20  # 20 seconds timeout
+            )
+        )
+        
+        # Extract and parse the content
+        response_text = response.choices[0].message.content.lower().strip()
+        logger.debug(f"Palm detection response: {response_text}")
+        
+        # Check if the response indicates a proper palm was detected
+        return 'yes' in response_text
+        
+    except Exception as e:
+        logger.error(f"Palm detection error: {e}", exc_info=True)
+        # In case of error, default to True to not block legitimate attempts
+        return True
+
+
 async def analyze_palm_with_openai(image_base64: str) -> Tuple[str, bool]:
     """Analyze a palm image using OpenAI API with improved error handling
     
@@ -418,12 +469,29 @@ async def analyze_palm(request: Request, image: UploadFile = File(...)):
                 "cached": True
             })
         
-        # Optimize image for processing
-        optimized_image = optimize_image(image_bytes)
-        image_data_url = image_to_base64_data_url(optimized_image)
+        # Convert image to base64 for palm detection and analysis
+        try:
+            optimized_image = await run_in_threadpool(lambda: optimize_image(image_bytes))
+            image_base64 = image_to_base64_data_url(optimized_image)
+        except Exception as e:
+            logger.error(f"Image optimization error: {str(e)}")
+            raise HTTPException(status_code=400, detail="Could not process the image. Please try another image.")
+        
+        # Detect if the image contains a palm
+        is_palm = await detect_palm(image_base64)
+        if not is_palm:
+            logger.info(f"No palm detected in image {image_hash}")
+            return JSONResponse({
+                "text": "No palm detected in the image. Please upload a clear photo of your palm.",
+                "status": "error",
+                "error": "no_palm_detected"
+            }, status_code=400)
+        
+        # Proceed with palm reading analysis
+        # (We've already optimized the image and converted to base64 for palm detection)
         
         # Get palm analysis from OpenAI
-        analysis_text, success = await analyze_palm_with_openai(image_data_url)
+        analysis_text, success = await analyze_palm_with_openai(image_base64)
         
         if not success:
             return JSONResponse({
