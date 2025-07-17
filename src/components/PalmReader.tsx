@@ -41,9 +41,17 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
   const [fortuneSections, setFortuneSections] = useState<FortuneSection[]>([]);
   const [shareUrl, setShareUrl] = useState<string>("");
   const [copySuccess, setCopySuccess] = useState(false);
+  const [isAndroid, setIsAndroid] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  
+  // Platform detection effect
+  useEffect(() => {
+    // Simple Android detection
+    const isAndroidDevice = /android/i.test(navigator.userAgent);
+    setIsAndroid(isAndroidDevice);
+  }, []);
 
   // Parse the analysis text into sections
   const parseAnalysisText = (text: string): FortuneSection[] => {
@@ -420,7 +428,7 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
                 )}
               </div>
 
-              {/* File Input */}
+              {/* File Inputs */}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -428,9 +436,20 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
                 onChange={handleImageChange}
                 className="hidden"
               />
+              {/* Separate input for camera capture */}
+              <input
+                id="camera-input"
+                type="file"
+                accept="image/*"
+                capture="environment"
+                onChange={handleImageChange}
+                className="hidden"
+              />
+              
+              {/* Camera input is shown conditionally based on platform */}
 
               {/* Action Buttons */}
-              <div className="flex gap-3 justify-center">
+              <div className="flex gap-3 justify-center flex-wrap">
                 <Button
                   onClick={handleButtonClick}
                   variant="outline"
@@ -439,12 +458,23 @@ const PalmReader: React.FC<PalmReaderProps> = ({ className }) => {
                   <Upload className="w-4 h-4" />
                   Select Image
                 </Button>
+                
+                {isAndroid && (
+                  <Button
+                    onClick={() => document.getElementById('camera-input')?.click()}
+                    variant="outline"
+                    className="flex items-center gap-2"
+                  >
+                    <Camera className="w-4 h-4" />
+                    Take Photo
+                  </Button>
+                )}
 
                 {selectedImage && (
                   <Button
                     onClick={handleUpload}
                     disabled={isLoading}
-                    className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700"
+                    className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 mt-2 sm:mt-0"
                   >
                     {isLoading ? "Analyzing..." : "Analyze Palm"}
                   </Button>
