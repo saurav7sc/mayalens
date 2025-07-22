@@ -1,11 +1,33 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="max-w-4xl mx-auto py-12 px-6">
-      <h1 className="text-3xl font-bold mb-8">Privacy Policy</h1>
-      
-      <div className="prose prose-indigo dark:prose-invert">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg px-8 py-10">
+          <Link
+            to="/"
+            className="inline-flex items-center text-sm text-indigo-600 dark:text-indigo-400 mb-6 hover:underline"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 mr-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+            Back to Home
+          </Link>
+          
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Privacy Policy</h1>
+          
+          <div className="prose dark:prose-invert max-w-none">
         <p className="text-lg mb-4">Last updated: July 16, 2025</p>
         
         <h2 className="text-2xl font-semibold mt-8 mb-4">1. Introduction</h2>
@@ -75,11 +97,25 @@ const PrivacyPolicy = () => {
           </a>
         </p>
         
-        <div className="border-t border-gray-200 dark:border-gray-700 mt-12 pt-8">
-          <p>
-            <a href="/" className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300">
-              &larr; Back to Home
-            </a>
+      </div>
+        </div>
+        
+        <div className="text-center mt-8">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            © 2025 MystiView. All rights reserved.
+          </p>
+          <p className="text-xs mt-2">
+            <Link to="/privacy" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
+              Privacy Policy
+            </Link>
+            {" • "}
+            <Link to="/terms" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
+              Terms of Service
+            </Link>
+            {" • "}
+            <Link to="/" className="text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400">
+              Home
+            </Link>
           </p>
         </div>
       </div>
